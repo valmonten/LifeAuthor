@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using lifeauthor.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace lifeauthor.Controllers
 {
@@ -11,20 +12,37 @@ namespace lifeauthor.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        private lifeauthorContext _context;
+        public SampleDataController(lifeauthorContext context)
+        {
+            _context= context;
+        }
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         [HttpGet("[action]")]
-        public Users Usersdata()
+        public User Usersdata()
         {
-            System.Console.WriteLine("At SampleDataController");
-            Users jeff = new Users();
-            jeff.name = "jeff";
-            jeff.email = "theunstoppable@me.com";
-            return jeff;
+            User firstuser = _context.users.Where(User=>User.id == 1).SingleOrDefault();
+            return firstuser;
         }
+
+        [HttpGet("[action]")]
+        public Note NoteData()
+        {
+            Note myentries = _context.notes.Where(J=>J.idnotes == 1).SingleOrDefault();
+            return myentries;
+        }
+
+        [HttpGet("[action]")]
+        public Journal JournalData()
+        {
+            Journal myjournals = _context.journals.Where(a=>a.idjournals == 1).SingleOrDefault();
+            return myjournals;
+        }
+        
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
             var rng = new Random();

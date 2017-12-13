@@ -14,8 +14,7 @@ namespace lifeauthor.Controllers
         public HomeController (lifeauthorContext context)
         {
             _context = context;
-            Users firstuser = _context.users.Where(Users=>Users.name == "jeff").SingleOrDefault();
-            Console.WriteLine(firstuser.password);
+            
 
         }
         public IActionResult Index()
