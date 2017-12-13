@@ -7,7 +7,6 @@ import * as $ from "jquery";
     templateUrl: './counter.component.html'
 })
 export class CounterComponent {
-<<<<<<< HEAD
     public person: User;
     public currentName: string;
     public myentry: Note;
@@ -41,7 +40,6 @@ interface User {
     name: string;
     email: string;
     password: string;
-=======
     public something = "Something";
     toggleNotes_m(){
         $(".notesContent_m").slideDown();
@@ -166,7 +164,6 @@ interface User {
 //     name: string;
 //     email: string;
 //     password: string;
->>>>>>> 3801056d246d403a079308e648fe02fd232ca95c
     
 // }
 
