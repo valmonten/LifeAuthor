@@ -1,24 +1,7 @@
-<h1>Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-
-<table class='table' *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+<div style="display: inline-block; width: 200px; border:black solid 2px; text-align:center;">
+    <h1>{{weekday}}</h1>
+    <h2>{{monthday}}</h2>
+    <home [show]='show'></home>
+    <nav-menu[show]='show'></nav-menu>
+    <counter [show]='show'></counter>
+  </div>

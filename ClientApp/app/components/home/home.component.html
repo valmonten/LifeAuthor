@@ -1,0 +1,11 @@
+
+    <div class="topAgenda">
+      <h4 (click)="showing()">Agenda</h4>
+      <div *ngIf="show" class="content">
+        <form>
+          <textarea></textarea>
+          <input type="submit" value="Submit">
+          <input type="hidden" [value]="weekday">
+        </form>
+      </div>
+    </div>
